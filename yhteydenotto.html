@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <!-- Määritellään HTML-dokumentin perustiedot -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Yhteydenotto - xVPN</title>
+
+    <!-- Lisätään Google Fonts -kirjasin -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+
+    <!-- Määritellään tyylit CSS:ssä -->
+    <style>
+        /* Yhteyslomakkeen tyyli */
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            text-align: left;
+            line-height: 1.6;
+            width: 60%;
+            padding: 30px;
+            color: rgb(48, 75, 113);
+            margin-bottom: 30px;
+            font-size: 24px;
+            box-sizing: border-box;
+        }
+
+        /* Otsikon tyyli */
+        .contact-form h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        /* Lomakkeen kenttien labelien tyyli */
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        /* Lomakkeen syöttökenttien ja tekstikentän tyyli */
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        /* Yleiset tyylit sivulle */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            position: relative;
+            font-size: 16px;
+        }
+
+        /* Sivun pääsisältöalueen tyylit */
+        .body-content {
+            padding: 0 100px;
+            background-color: #184868;
+        }
+
+        /* Yläpalkin tyylit */
+        header {
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            position: relative;
+            margin-bottom: 0;
+        }
+
+        /* Logon ja navigaation tyyli */
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Yläpalkin logon tyyli */
+        header img {
+            width: 180px;
+            height: 180px;
+            margin-left: 150px;
+            margin-bottom: -10px;
+        }
+
+        /* Yläpalkin otsikon tyyli */
+        .header1 {
+            text-align: center;
+            font-size: 27px;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        /* Navigaation tyyli */
+        nav {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        /* Navigaation linkkien tyyli */
+        nav a {
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Uuden linkin, kysy-linkin ja kirjaudu-linkin tyyli */
+        .new-link,
+        .kysy-link,
+        .kirjaudu {
+            margin-left: 30px;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            position: relative;
+            z-index: 1;
+            font-size: 16px;
+            right: 80px;
+        }
+
+        /* Uuden linkin tyyli */
+        .new-link {
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        /* Sivun pääsisällön tyyli */
+        main {
+            position: relative;
+            min-height: 800px;
+            background: url('nettisivutausta1.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 0;
+            padding: 20px;
+        }
+
+        /* Tekstilaatikon ja lisätekstilaatikon tyyli */
+        .text-box,
+        .additional-text-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            text-align: center;
+            line-height: 1.6;
+            width: 45%;
+            padding: 20px;
+            color: rgb(48, 75, 113);
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        /* Tekstilaatikon tyyli */
+        .text-box {
+            margin-bottom: 200px;
+        }
+
+        /* Tekstilaatikon viidennen kappaleen tyyli */
+        .text-box p:nth-child(5) {
+            font-weight: bold;
+        }
+
+        /* Liittymislaatikon tyyli */
+        .join-box {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+        }
+
+        /* Liittymislinkin tyyli */
+        .join-box a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            font-size: 20px;
+        }
+
+        /* Liittymislaatikon hover-tilan tyyli */
+        .join-box:hover {
+            background-color: #2c3e50;
+        }
+
+        /* Linkkien ja kysymyksiä-linkin tyyli */
+        .new-link,
+        .kysy-link,
+        .contact-link {
+            margin-left: 30px;
+        }
+
+        /* Uuden linkin, kysy-linkin ja yhteystietolinkin tyyli */
+        .new-link a,
+        .kysy-link a,
+        .contact-link a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Alapalkin tyyli */
+        footer {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        /* Alapalkin linkkien tyyli */
+        footer a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* Alapalkin logon tyyli */
+        .footer-logo {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+
+        /* Alapalkin tekstin tyyli */
+        .footer-text {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        /* Alapalkin linkkien tyyli */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Alapalkin linkkien tyyli */
+        .footer-links a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        /* Alapalkin viimeisen linkin tyyli */
+        .footer-links a:last-child {
+            margin-left: 20px;
+        }
+
+        /* Yhteystietolinkin ja kysymyksiä-linkin tyyli */
+        .contact-link,
+        .kysymyksiä {
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        /* Responsiivinen tyyli näytön leveydelle alle 768px */
+        @media only screen and (max-width: 768px) {
+            /* Yläpalkin valikoiden tyyli */
+            .menu-item {
+                margin-top: 0;
+            }
+
+            /* Sivun pääsisällön tyyli */
+            .body-content {
+                padding: 0 0px;
+            }
+
+            /* Yläpalkin tyyli */
+            header {
+                background-color: #f0f0f0;
+                display: flex;
+                align-items: center;
+                padding: 0;
+                position: relative;
+                margin-bottom: 0;
+            }
+
+            /* Yläpalkin logon tyyli */
+            header img {
+                width: 120px;
+                height: 120px;
+                margin-left: 0;
+            }
+
+            /* Yläpalkin otsikon tyyli */
+            .header1 {
+                font-size: 14px;
+                position: sticky;
+                left: 145px;
+            }
+
+            /* Uuden linkin, kysy-linkin ja kirjaudu-linkin tyyli */
+            .new-link,
+            .kysy-link,
+            .kirjaudu {
+                margin-left: 3px;
+                margin-bottom: 30px;
+                padding: 8px;
+                font-size: 8px;
+                top: 0;
+                left: 0;
+            }
+
+            /* Kirjaudu-linkin tyyli */
+            .kirjaudu {
+                top: 30px;
+                left: 50px;
+            }
+
+            /* Kysy-linkin tyyli */
+            .kysy-link {
+                left: 50px;
+            }
+
+
+            /* Tekstilaatikon ja lisätekstilaatikon tyyli */
+            .text-box,
+            .additional-text-box {
+                width: 100%;
+            }
+
+            /* Alapalkin tekstien tyyli */
+            .footer-text,
+            .contact-link,
+            .kysymyksiä {
+                font-size: 14px;
+                
+            }
+            .contact-form {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sivun yläpalkki -->
+    <header>
+        <!-- Logon ja navigaation osa -->
+        <div class="logo-nav">
+            <!-- Linkki etusivulle -->
+            <a href="index.html">
+                <img src="logo_transparent.png" alt="Kotisivulle">
+            </a>
+        </div>
+        <!-- Sivun otsikko -->
+        <div class="header1">
+            <h>xVPN - Yksityisyys, Turvallisuus <br> ja Vapaus verkossa!</h>
+        </div>
+        <!-- Navigaatio -->
+        <nav>
+            <!-- Kysy-linkki -->
+            <a class="kysy-link" href="kysyttyä.html">kysymyksiä?</a>
+            <!-- Kirjaudu-linkki -->
+            <a class="kirjaudu" href="kirjaudu.html">kirjaudu</a>
+        </nav>
+        <!-- Uuden linkin lisääminen -->
+        <div class="new-link">
+            <a href="rekisteröinti.html">Liity nyt!</a>
+        </div>
+    </header>
+    <!-- Sivun pääsisältöalue -->
+    <div class="body-content">
+        <!-- Pääsisällön alue -->
+        <main>
+            <!-- Yhteydenottolomake -->
+            <div class="contact-form">
+                <!-- Otsikko -->
+                <h1>Ota yhteyttä</h1>
+                <!-- Yhteydenottolomake -->
+                <form action="#" method="post">
+                    <label for="name">Nimi:</label>
+                    <input type="text" id="name" name="name" required>
+                    <br>
+                    <label for="email">Sähköposti:</label>
+                    <input type="email" id="email" name="email" required>
+                    <br>
+                    <label for="subject">Aihe:</label>
+                    <textarea id="subject" name="subject" rows="6" required></textarea>
+                    <br><br>
+                    <!-- Lähetyspainike -->
+                    <input type="submit" value="Lähetä">
+                </form>
+            </div>
+        </main>
+    </div>
+    <!-- Sivun alapalkki -->
+    <footer>
+        <!-- Alapalkin sisältö -->
+        <div class="footer-content">
+            <!-- Alapalkin linkit -->
+            <div class="footer-links">
+                <!-- Yhteystietolinkki -->
+                <a class="contact-link" href="yhteydenotto.html">Ota yhteyttä</a>
+                <!-- Usein kysyttyä -linkki -->
+                <a class="kysymyksiä" href="kysyttyä.html">Usein kysyttyä</a>
+            </div>
+            <!-- Alapalkin tekstitiedot -->
+            <div class="footer-text">
+                <!-- Tekijän tiedot ja tekijän logo -->
+                <a href="index.html">
+                    <p>&copy; 2024 xVPN. All rights reserved.</p>
+                    <img src="logo_transparent.png" alt="Footer Logo" class="footer-logo">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
