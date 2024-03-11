@@ -98,6 +98,7 @@
             font-size: 27px;
             width: 100%;
             font-weight: bold;
+            margin-left: 80px;
         }
 
         /* Navigaation tyyli */
@@ -267,9 +268,15 @@
             margin-bottom: 20px;
             font-size: 16px;
         }
-        /* Responsiiviset tyylit alle 1290 pikselin näytölle */
-    @media only screen and (max-width: 1290px) {
+        /* Responsiiviset tyylit alle 1400px pikselin näytölle */
+@media only screen and (max-width: 1400px) {
                   /* Headerin logon koko pienennetty */
+
+                  .body-content {
+                padding: 0 50px;
+                background-color: #184868;
+            }
+
                   header img {
                     margin-left: 20px;
             }
@@ -278,15 +285,17 @@
             .header1 {
                 position: sticky;
                 left: 145px;
+                font-size: 22px;
+                margin-left: 70px;
             }
             /* Navigaatiolinkkien tyyli pienemmällä näytöllä */
             .new-link,
             .kysy-link,
             .kirjaudu {
-                margin-left: 30px;
-                padding: 15px;
-                font-size: 16px;
-                left:25px
+                margin-left: 10px;
+                padding: 8px;
+                font-size: 14px;
+                left:25px;
             }
         }
         /* Responsiivinen tyyli näytön leveydelle alle 768px */
